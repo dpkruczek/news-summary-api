@@ -5,3 +5,4 @@ python-dotenv==1.0.1
 pydantic==2.10.6
 langchain==0.2.16
 langchain_community==0.2.15
+pytest==8.3.4
