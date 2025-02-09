@@ -12,7 +12,8 @@ router = APIRouter(prefix="/summary", dependencies=[Depends(validate_api_key)])
 class SummaryService:
     def __init__(self, model: str):
         self.llm = Ollama(
-            model=model, 
+            model=model,
+            temperature=0.5,
             callbacks=[StreamingStdOutCallbackHandler()]
         )
     
@@ -25,7 +26,7 @@ class SummaryService:
         
         # TODO: Prevent jailbreaking
 
-        instructions = "Please summarize the following article in exactly two sentences and nothing else: "            
+        instructions = "Please summarize the following article in exactly two sentences. Don't write anything else than the summary, such as 'Here is the summary of the article: '"            
         return self.llm.invoke(instructions + article.article)
 
 # Initialize the service

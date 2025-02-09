@@ -15,7 +15,8 @@
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      summary = await response.text();
+      const res = await response.json();
+      summary = res.summary;
     } catch (error) {
       console.error("Error:", error);
       summary = "Failed to fetch answer.";
