@@ -21,3 +21,7 @@
 ```bash
 pytest
 ```
+
+### API Documentation
+
+The API documentation is available at `http://localhost:8000/docs` after running the application.
